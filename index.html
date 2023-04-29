@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Home</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+
+<body>
+
+    <form>
+        <label for id="email"> Email: </label>
+        <input type="text" id="email" name="email"> <br>
+        <label for id="password"> Password: </label>
+        <input type="text" id="password" name="password"> <br>
+
+    </form>
+<script>
+    fetch('http://localhost:8080/api/users/login', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzkwNjg2MzEsImV4cCI6MTY3OTA3NTgzMSwidXNlcklkIjo1LCJlbWFpbCI6ImRhdmlkQHRlc3RtYWlsLmNvbSIsImZpcnN0TmFtZSI6IkRhdmlkIiwibGFzdE5hbWUiOiJTbWl0aCJ9.ckMT1_9f-5L4QJdLWs7wPjK-mBc8hoIpoTxuwcbM8EQ',
+         },
+         body: JSON.stringify({
+            "email": document.getElementById("email").value,
+            "password": document.getElementById("password").value
+        })
+
+        
+    }).then(res => res.json()).then(res => console.log(res)).catch(err => console.error(err));
+   
+</script>
+
+</body>
+</html>
