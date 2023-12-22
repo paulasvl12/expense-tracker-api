@@ -30,6 +30,12 @@ public class CategoryResource {
     public ResponseEntity<Category> addCategory(HttpServletRequest request, @RequestBody Map<String, Object> categoryMap){
         int userId = (Integer)request.getAttribute("userId");
         String title = (String)categoryMap.get("title");
+
+        List<Category> categories = categoryService.fetchAllCategories(userId);
+        if(categoryNameExists(categories, title)){
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
         String description = (String)categoryMap.get("description");
         Category category = categoryService.addCategory(userId, title, description);
         return new ResponseEntity<>(category, HttpStatus.CREATED);
@@ -60,6 +66,15 @@ public class CategoryResource {
         Map<String, Boolean> map = new HashMap<>();
         map.put("success", true);
         return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
+    private boolean categoryNameExists(List<Category> categories, String categoryName) {
+        for (Category category : categories) {
+            if (category.getTitle().equalsIgnoreCase(categoryName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
