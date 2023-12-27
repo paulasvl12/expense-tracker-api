@@ -1,0 +1,57 @@
+@media only screen and (max-width: 600px) {
+
+  .centeredButtonContainer {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+}
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+  #form {
+    display: inline-block;
+    border: 5px solid #0021B6;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  label{
+    padding: 30px;
+  }
+  input {
+    margin-left: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 5px;
+    border-color: black;
+  }
+  h1, label {
+    font-family: 'Gabarito', sans-serif;
+    color: #c1121f;
+  }
+ h1 {
+    text-align: center;
+    padding: 20px;
+ } 
+
+ h2, h3 {
+  color: #c1121f;
+  padding: 20px;
+ }
+p#description {
+  color: blue;
+}
+  button{
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+   
+  }
+  button:hover{
+    cursor: pointer;
+  }
