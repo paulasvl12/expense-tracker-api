@@ -41,7 +41,7 @@ const Categories = ({ token, email }) => {
   return (
     <div>
       <h2> Welcome, {email} </h2>
-      <h2>My Categories</h2>
+      <h2>My Categories2</h2>
       <ul>
         {Array.isArray(categoriesData) && categoriesData.map((category) => (
           <CategoryCard title={category.title} description={category.description} id={category.categoryId} token={token} updateCategoriesData={updateCategoriesData}>
